@@ -1,4 +1,4 @@
-export const chords = {
+const chords = {
     'Ab':{
         'maj':[{'name':'Ab','chords':[9,21]},{'name':'C','chords':[1,13,25]},{'name':'Eb','chords':[4,16,28]}],
         'm':[{'name':'Ab','chords':[9,21]},{'name':'B','chords':[12,24]},{'name':'Eb','chords':[4,16,28]}],
@@ -145,7 +145,7 @@ export const chords = {
         'aug7':[{'name':'B','chords':[12,24]},{'name':'D#','chords':[4,16,28]},{'name':'G','chords':[8,20]},{'name':'A','chords':[10,22]}]
     },
     'C':{
-        'maj':[{'name':'C','chords':[1,13,25]},{'name':'E','chords':[5,17,29]},{'name':'E','chords':[5,17,29]}],
+        'maj':[{'name':'C','chords':[1,13,25]},{'name':'E','chords':[5,17,29]},{'name':'G','chords':[8,20]}],
         'm':[{'name':'C','chords':[1,13,25]},{'name':'Eb','chords':[4,16,28]},{'name':'G','chords':[8,20]}],
         '7':[{'name':'C','chords':[1,13,25]},{'name':'E','chords':[5,17,29]},{'name':'G','chords':[8,20]},{'name':'Bb','chords':[11,23]}],
         'm7':[{'name':'C','chords':[1,13,25]},{'name':'Eb','chords':[4,16,28]},{'name':'G','chords':[8,20]},{'name':'Bb','chords':[11,23]}],
@@ -493,3 +493,5 @@ export const chords = {
         'aug7':[{'name':'G#','chords':[9,21]},{'name':'C','chords':[1,13,25]},{'name':'E','chords':[5,17,29]},{'name':'F#','chords':[7,19]}]
     },
 }
+
+export default chords
