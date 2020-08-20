@@ -8,12 +8,12 @@ const Keys = ({chordsList})=>{
     console.log({chordsList}.chordsList)
     let chordIndexList = []
     let counter = 1
-    for (let i=1; i<18;i++){
+    for (let i=1; i<22;i++){
         let newIndexList = []
 
 
 
-        if (i === 1 || i === 4 || i === 8 || i === 11 || i === 15){
+        if (i === 1 || i === 4 || i === 8 || i === 11 || i === 15 || i === 18){
             let status = false
             for (let i=0;i<{chordsList}.chordsList.length;i++){
                 if ({chordsList}.chordsList[i] === counter){

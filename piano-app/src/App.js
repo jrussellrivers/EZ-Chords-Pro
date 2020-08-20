@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import Chord from './Chord'
+import Melody from './Melody'
 import './App.css'
 
 function App() {
   const [chordList, addChords] = useState([])
   const [newChord, addNewChord] = useState([])
+  const [startMelody, changeMelody] = useState('')
 
   const onSubmit = evt =>{
     evt.preventDefault()
@@ -71,10 +73,17 @@ function App() {
             <option value="aug7">aug7</option>
           </select>
         </div>
+        <div>
+          <label htmlFor="melody_chooser">Choose Starting Melody:</label>
+          <select name='melody_chooser' onChange={(evt)=>changeMelody([evt.target.value])}>
+            <option value="">-- Select Melody Note --</option>
+            <Melody newChord={newChord}/>
+          </select>
+        </div>
         <button>Submit</button>
       </form>
 
-      {chordList.map((chord, idx)=> <Chord key={idx} chord={chord}/>)}
+      {chordList.map((chord, idx)=> <Chord key={idx} chord={chord} startMelody={startMelody}/>)}
     </div>
   );
 }
