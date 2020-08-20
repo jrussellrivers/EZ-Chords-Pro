@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Key = ({chordIdx}) =>{
-    console.log(typeof {chordIdx}.chordIdx[0])
     if (typeof {chordIdx}.chordIdx[0] == "number"){
         if ({chordIdx}.chordIdx[1] === false){
             return <li><div className={"anchor"}></div></li>
@@ -22,8 +21,6 @@ const Key = ({chordIdx}) =>{
             return <li><div className={"anchor"}></div><span></span></li>
         }
     }
-
-
 }
 
 export default Key

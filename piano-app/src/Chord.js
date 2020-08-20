@@ -9,7 +9,7 @@ const Chord = (props)=>{
     let newChordList = []
     
     console.log(chords[note][variation])
-    chords[note][variation].map(new_chord =>{
+    chords[note][variation].forEach(new_chord =>{
         let max = 25
         let highest = 0 
 
@@ -26,9 +26,7 @@ const Chord = (props)=>{
 
 
     return(
-        <div>
             <Keys chordsList={sortedChords}/>
-        </div>
     )
 }
 

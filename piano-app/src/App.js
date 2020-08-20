@@ -9,7 +9,7 @@ function App() {
   const onSubmit = evt =>{
     evt.preventDefault()
 
-    addChords([...chordList, newChord])
+    addChords([newChord])
   }
 
   return (
