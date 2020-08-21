@@ -10,7 +10,6 @@ function App() {
 
   const onSubmit = evt =>{
     evt.preventDefault()
-
     addChords([newChord])
   }
 

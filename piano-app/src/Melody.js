@@ -3,6 +3,7 @@ import chords from './chords'
 import MelodyOption from './MelodyOption'
 
 const Melody = ({changeMelody, newChord}) =>{
+
     if (newChord.length < 2){
         return <></>
     } else if (newChord[0] === "" || newChord[1] === ""){

@@ -16,7 +16,7 @@ const Keys = ({chordsList})=>{
         if (i === 1 || i === 4 || i === 8 || i === 11 || i === 15 || i === 18){
             let status = false
             for (let i=0;i<{chordsList}.chordsList.length;i++){
-                if ({chordsList}.chordsList[i] === counter){
+                if ({chordsList}.chordsList[i][0] === counter){
                     status = true
                 }
             }
@@ -28,10 +28,10 @@ const Keys = ({chordsList})=>{
             let status2 = false
 
             for (let i=0;i<{chordsList}.chordsList.length;i++){
-                if ({chordsList}.chordsList[i] === counter){
+                if ({chordsList}.chordsList[i][0] === counter){
                     status1 = true
                 } 
-                if ({chordsList}.chordsList[i] === counter + 1){
+                if ({chordsList}.chordsList[i][0] === counter + 1){
                     status2 = true
                 }
             }

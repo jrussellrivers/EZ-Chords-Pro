@@ -40,14 +40,25 @@ const Chord = (props)=>{
             }
         });
 
-        newChordList.push(highest)
+        newChordList.push([highest, new_chord.name])
     })    
-
-    let sortedChords = newChordList.sort()
-
+    let sortedChords = newChordList.sort((a,b)=>a[0]-b[0])
+    
+    let chordString = note + variation + ' :'
+    for (let i=0;i<sortedChords.length;i++){
+        if (i === sortedChords.length - 1){
+            chordString += ' ' + sortedChords[i][1]
+        } else{
+            chordString += ' ' + sortedChords[i][1] + ' -'
+        }
+        
+    }
 
     return(
+        <div>
             <Keys chordsList={sortedChords}/>
+            <div>{chordString}</div>
+        </div>
     )
 }
 
