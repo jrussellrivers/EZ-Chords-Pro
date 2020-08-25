@@ -2,7 +2,7 @@ import React from 'react';
 import chords from './chords'
 import MelodyOption from './MelodyOption'
 
-const Melody = ({changeMelody, newChord}) =>{
+const Melody = ({newChord}) =>{
 
     if (newChord.length < 2){
         return <></>

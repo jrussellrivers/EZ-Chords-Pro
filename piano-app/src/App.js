@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Chord from './Chord'
 import FirstForm from './FirstForm'
 import OtherForms from './OtherForms'
+import calculateMed from './calculateMed'
 import './App.css'
 
 function App() {
@@ -17,15 +18,19 @@ function App() {
   const onSubmit = (data) => {
     const values = Object.values(data)
     let newChords = []
+    let firstChord = []
     let index = 0
     for (let i=0;i<(values.length-1)/2 ;i++){
       newChords.push([values[index],values[index + 1]])
       if (i===0){
+        changeMelody(values[index + 2])
+        firstChord.push(values[index],values[index + 1],values[index + 2])
         index += 3
       } else { 
         index += 2
       }
     }
+    changeMed(calculateMed(firstChord))
     addChords(newChords)
   };
 
