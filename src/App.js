@@ -4,6 +4,7 @@ import Chord from './Chord'
 import FirstForm from './FirstForm'
 import OtherForms from './OtherForms'
 import calculateMed from './calculateMed'
+import Progression from './Progression'
 import './App.css'
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='theApp'>
       <div>Number of Chords: {formNumber}</div>
       <button onClick={increment}>Add Chord</button>
       <button onClick={decrement}>Remove Chord</button>
@@ -54,6 +55,7 @@ function App() {
         <input type="submit" />
       </form>
 
+      {chordList.length > 0 ? <Progression chordList={chordList}/>  : null}
       {chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>)}
     </div>
   );

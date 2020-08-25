@@ -63,7 +63,6 @@ let soundValues = {
 }
 
 const Chord = (props)=>{
-    console.log('Here')
 
     const handleClick = (array) => {
         for (let i=0;i<array.length;i++){
@@ -109,10 +108,9 @@ const Chord = (props)=>{
         }
 
         return(
-            <div>
+            <div className='chordDiv'>
                 <Keys chordsList={sortedChords}/>
-                <div>{chordString}</div>
-                <button onClick={()=>handleClick(ranNotes)}>Play</button>
+                <div className='chordSoundDiv'><span className='chordString'>{chordString}</span><img className='soundImage' src="volume.png" alt="play" onClick={()=>handleClick(ranNotes)}/></div>
             </div>
         )
     } else {
@@ -154,10 +152,9 @@ const Chord = (props)=>{
         // console.log(ranNotes)
 
         return(
-            <div>
+            <div className='chordDiv'>
                 <Keys chordsList={sortedChords}/>
-                <div>{chordString}</div>
-                <button onClick={()=>handleClick(ranNotes)}>Play</button>
+                <div className='chordSoundDiv'><span className='chordString'>{chordString}</span><img className='soundImage' src="volume.png" alt="play" onClick={()=>handleClick(ranNotes)}/></div>
             </div>
         )
     }
