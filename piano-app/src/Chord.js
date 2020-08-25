@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import chords from './chords'
 import Keys from './Keys'
+import AudioPlayer from "./AudioPlayer";
 
 let melodyValues = {
     'C':25,
@@ -22,16 +23,68 @@ let melodyValues = {
     'B':24
 }
 
+let soundValues = {
+    1:'C3',
+    2:'C#3',
+    3:'D3',
+    4:'D#3',
+    5:'E3',
+    6:'F3',
+    7:'F#3',
+    8:'G3',
+    9:'G#3',
+    10:'A3',
+    11:'A#3',
+    12:'B3',
+    13:'C4',
+    14:'C#4',
+    15:'D4',
+    16:'D#4',
+    17:'E4',
+    18:'F4',
+    19:'F#4',
+    20:'G4',
+    21:'G#4',
+    22:'A4',
+    23:'A#4',
+    24:'B4',
+    25:'C5',
+    26:'C#5',
+    27:'D5',
+    28:'D#5',
+    29:'E5',
+    30:'F5',
+    31:'F#5',
+    32:'G5',
+    33:'G#5',
+    34:'A5',
+    35:'A#5',
+    36:'B5'
+}
+
 const Chord = (props)=>{
+    const audioPlayer = AudioPlayer()
+
+    useEffect(() => {
+        audioPlayer.setInstrument("acoustic_grand_piano");
+    });
+
+
+    const handleClick = (array) => {
+        for (let i=0;i<array.length;i++){
+          audioPlayer.playNote(array[i]);
+        }
+    };
+
     if (props.idx === 0){
-        console.log(props.chord)
+        // console.log(props.chord)
         let note = props.chord[0]
         let variation = props.chord[1]
         let newChordList = []
         
         let maxValue = melodyValues[props.startMelody]
 
-        console.log(chords[note][variation])
+        // console.log(chords[note][variation])
         chords[note][variation].forEach(new_chord =>{
             let highest = 0 
 
@@ -55,27 +108,25 @@ const Chord = (props)=>{
             
         }
 
-        let sortedSum = 0
+        let ranNotes = []
         for (let i=0;i<sortedChords.length;i++){
-            sortedSum += sortedChords[i][0]
+            ranNotes.push(soundValues[sortedChords[i][0]])
         }
-
-        let sortedAverage = sortedSum / (sortedChords.length)
-        props.changeMed(sortedAverage)
 
         return(
             <div>
                 <Keys chordsList={sortedChords}/>
                 <div>{chordString}</div>
+                <button onClick={()=>handleClick(ranNotes)}>Play</button>
             </div>
         )
     } else {
-        console.log(props.chord)
+        // console.log(props.chord)
         let note = props.chord[0]
         let variation = props.chord[1]
         let newChordList = []
 
-        console.log(chords[note][variation])
+        // console.log(chords[note][variation])
         chords[note][variation].forEach(new_chord =>{
             let shortestRange = 50
             let newElement = 0
@@ -101,10 +152,17 @@ const Chord = (props)=>{
             
         }
 
+        let ranNotes = []
+        for (let i=0;i<sortedChords.length;i++){
+            ranNotes.push(soundValues[sortedChords[i][0]])
+        }
+        // console.log(ranNotes)
+
         return(
             <div>
                 <Keys chordsList={sortedChords}/>
                 <div>{chordString}</div>
+                <button onClick={()=>handleClick(ranNotes)}>Play</button>
             </div>
         )
     }

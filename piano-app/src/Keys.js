@@ -4,8 +4,8 @@ import Key from './Key'
 // [1,5,8]
 
 const Keys = ({chordsList})=>{
-    console.log({chordsList})
-    console.log({chordsList}.chordsList)
+    // console.log({chordsList})
+    // console.log({chordsList}.chordsList)
     let chordIndexList = []
     let counter = 1
     for (let i=1; i<22;i++){
@@ -42,7 +42,7 @@ const Keys = ({chordsList})=>{
         chordIndexList.push(newIndexList)
     }
 
-    console.log(chordIndexList)
+    // console.log(chordIndexList)
 
     return(
         <ul id="piano">
