@@ -23,6 +23,7 @@ function App() {
     for (let i=0;i<(values.length-1)/2 ;i++){
       newChords.push([values[index],values[index + 1]])
       if (i===0){
+        changeMelody(values[index + 2])
         firstChord.push(values[index],values[index + 1],values[index + 2])
         index += 3
       } else { 

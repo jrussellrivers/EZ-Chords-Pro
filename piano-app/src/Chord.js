@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import chords from './chords'
 import Keys from './Keys'
-import AudioPlayer from "./AudioPlayer";
+import audioPlayer from "./AudioPlayer";
 
 let melodyValues = {
     'C':25,
@@ -63,16 +63,11 @@ let soundValues = {
 }
 
 const Chord = (props)=>{
-    const audioPlayer = AudioPlayer()
-
-    useEffect(() => {
-        audioPlayer.setInstrument("acoustic_grand_piano");
-    });
-
+    console.log('Here')
 
     const handleClick = (array) => {
         for (let i=0;i<array.length;i++){
-          audioPlayer.playNote(array[i]);
+            audioPlayer.playNote(array[i]);
         }
     };
 

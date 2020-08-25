@@ -63,7 +63,7 @@ const FirstForm = ({changeMelody, register, addNewChord, newChord}) =>{
             </div>
             <div>
                 <label htmlFor="melody_chooser">Choose Starting Melody:</label>
-                <select name='melody_chooser' ref={register({ required: true})} onChange={(evt)=>changeMelody([evt.target.value])}>
+                <select name='melody_chooser' ref={register({ required: true})}>
                 <option value="">-- Select Melody Note --</option>
                 <Melody newChord={newChord}/>
                 </select>

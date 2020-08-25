@@ -34,4 +34,7 @@ const AudioPlayer = () => {
   return Player;
 };
 
-export default AudioPlayer;
+const audioPlayer = AudioPlayer()
+audioPlayer.setInstrument("acoustic_grand_piano");
+
+export default audioPlayer;
