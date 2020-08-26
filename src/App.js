@@ -61,14 +61,16 @@ function App() {
       <div>Number of Chords: {formNumber}</div>
       <button onClick={incrementForm}>Add Chord</button>
       <button onClick={decrementForm}>Remove Chord</button>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
-        <OtherForms formNumber={formNumber} register={register}/>
-        <input type="submit" />
-      </form>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
+          <OtherForms formNumber={formNumber} register={register}/>
+          <input type="submit" />
+        </form>
+      </div>
 
       {chordList.length > 0 ? <Progression chordList={chordList} startMelody={startMelody} medValue={medValue} delayNumber={delayNumber}/>  : null}
-      {chordList.length > 0 ? (delayNumber ===1 ? <div><div>Time Delay Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div> : <div><div>Time Delay Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div>) : null}
+      {chordList.length > 0 ? (delayNumber ===1 ? <div className='delayDiv'><div>Time Delay Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div> : <div className='delayDiv'><div>Time Delay Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div>) : null}
       {chordList.length > 0 ? chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>) : null}
     </div>
   );
