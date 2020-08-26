@@ -15,6 +15,7 @@ function App() {
   const [newChord, addNewChord] = useState([])
   const [startMelody, changeMelody] = useState('')
   const [medValue, changeMed] = useState(0)
+  const [delayNumber, addDelayNumber] = useState(1)
 
   const onSubmit = (data) => {
     const values = Object.values(data)
@@ -31,32 +32,44 @@ function App() {
         index += 2
       }
     }
+    addDelayNumber(1)
     changeMed(calculateMed(firstChord))
     addChords(newChords)
   };
 
-  const increment = () => {
+  const incrementForm = () => {
     addFormNumber(formNumber + 1)
-}
-  const decrement = () => {
+  }
+  const decrementForm = () => {
     if (formNumber > 1){
       addFormNumber(formNumber - 1)
     }
   }
 
+  const incrementDelay = () => {
+    addDelayNumber(delayNumber + 1)
+}
+  const decrementDelay = () => {
+    if (delayNumber > 1){
+      addDelayNumber(delayNumber - 1)
+    }
+  }
+
+  console.log('app')
   return (
     <div className='theApp'>
       <div>Number of Chords: {formNumber}</div>
-      <button onClick={increment}>Add Chord</button>
-      <button onClick={decrement}>Remove Chord</button>
+      <button onClick={incrementForm}>Add Chord</button>
+      <button onClick={decrementForm}>Remove Chord</button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
         <OtherForms formNumber={formNumber} register={register}/>
         <input type="submit" />
       </form>
 
-      {chordList.length > 0 ? <Progression chordList={chordList}/>  : null}
-      {chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>)}
+      {chordList.length > 0 ? <Progression chordList={chordList} startMelody={startMelody} medValue={medValue} delayNumber={delayNumber}/>  : null}
+      {chordList.length > 0 ? (delayNumber ===1 ? <div><div>Time Delay Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div> : <div><div>Time Delay Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div>) : null}
+      {chordList.length > 0 ? chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>) : null}
     </div>
   );
 }
