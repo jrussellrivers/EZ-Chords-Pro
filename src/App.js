@@ -5,6 +5,7 @@ import FirstForm from './FirstForm'
 import OtherForms from './OtherForms'
 import calculateMed from './calculateMed'
 import Progression from './Progression'
+import Intro from './Intro'
 import './App.css'
 
 function App() {
@@ -58,19 +59,25 @@ function App() {
   console.log('app')
   return (
     <div className='theApp'>
-      <div>Number of Chords: {formNumber}</div>
-      <button onClick={incrementForm}>Add Chord</button>
-      <button onClick={decrementForm}>Remove Chord</button>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
-          <OtherForms formNumber={formNumber} register={register}/>
-          <input type="submit" />
-        </form>
+      <h1>Welcome to EZ Chords Pro</h1>
+      <div className='topDiv'>
+        <Intro />
+        <div>
+          <div>Number of Chords: {formNumber}</div>
+          <button onClick={incrementForm}>Add Chord</button>
+          <button onClick={decrementForm}>Remove Chord</button>
+          <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
+              <OtherForms formNumber={formNumber} register={register}/>
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
       </div>
-
+      <hr/>
       {chordList.length > 0 ? <Progression chordList={chordList} startMelody={startMelody} medValue={medValue} delayNumber={delayNumber}/>  : null}
-      {chordList.length > 0 ? (delayNumber ===1 ? <div className='delayDiv'><div>Time Delay Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div> : <div className='delayDiv'><div>Time Delay Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Delay</button><button onClick={decrementDelay}>Reduce Delay</button></div>) : null}
+      {chordList.length > 0 ? (delayNumber ===1 ? <div className='delayDiv'><div>Time Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Time</button><button onClick={decrementDelay}>Reduce Time</button></div> : <div className='delayDiv'><div>Time Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Time</button><button onClick={decrementDelay}>Reduce Time</button></div>) : null}
       {chordList.length > 0 ? chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>) : null}
     </div>
   );

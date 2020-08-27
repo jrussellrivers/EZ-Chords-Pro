@@ -4,13 +4,10 @@ padding:0px;
 list-style:none;
 }
 
-html, body {
+html, body{
     height: 100%;
     margin: 0;
     color: white;
-}
-
-#root {
     background: black;
     height: 100vh;
     overflow-y: auto;
@@ -25,9 +22,69 @@ html, body {
     background:linear-gradient(-20deg,#333,#000,#333);
 }
 
+body {
+    text-align: center;
+}
+
 .theApp {
     text-align: center;
     margin: 20px;
+}
+
+h1 {
+    margin: 30px;
+    font-size: 70px;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+.topDiv {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.introDiv {
+    margin: 20px;
+    /* display: inline-block;
+    justify-content: center; */
+    text-align: center;
+}
+
+.introInfo {
+    justify-content: center;
+    display: inline-block;
+    flex-wrap: wrap;
+}
+
+.introInfo p{
+    font-size: 20px;
+    color: white;
+    max-width: 700px;
+    /* min-width: 450px; */
+}
+
+.introOrdered{
+    max-width: 700px;
+    /* min-width: 450px; */
+    margin: 20px;
+    text-align: left;
+}
+
+.introOrdered li {
+    margin: 10px;
+    list-style: upper-roman;
+}
+
+.introOrdered li ul li{
+    list-style: lower-roman;
+}
+
+.introOrdered li ul {
+    display: inline-block;
+    justify-content: center;
 }
 
 .chordDiv {
