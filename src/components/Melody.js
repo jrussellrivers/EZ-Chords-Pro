@@ -1,5 +1,5 @@
 import React from 'react';
-import chords from './chords'
+import chords from '../music_data/chords'
 import MelodyOption from './MelodyOption'
 
 const Melody = ({newChord}) =>{

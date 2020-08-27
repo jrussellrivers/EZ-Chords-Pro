@@ -1,7 +1,7 @@
 import React from 'react';
-import {soundValues, melodyValues} from './soundValues'
-import chords from './chords'
-import audioPlayer from "./AudioPlayer";
+import {soundValues, melodyValues} from '../music_data/soundValues'
+import chords from '../music_data/chords'
+import audioPlayer from "../AudioPlayer";
 
 const Progression = ({chordList, startMelody, medValue, delayNumber}) => {
     
@@ -72,6 +72,7 @@ const Progression = ({chordList, startMelody, medValue, delayNumber}) => {
         }
         allRanChords.push(ranNotes)
     }
+    
     let progString = 'Chord Progression : '
     for (let i=0;i<chordList.length;i++){
         if (i === chordList.length - 1){

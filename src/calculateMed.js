@@ -1,4 +1,4 @@
-import chords from './chords'
+import chords from './music_data/chords'
 
 let melodyValues = {
     'C':25,

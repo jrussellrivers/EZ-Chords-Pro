@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { useForm } from "react-hook-form";
-import Chord from './Chord'
-import FirstForm from './FirstForm'
-import OtherForms from './OtherForms'
+import Chord from './components/Chord'
+import FirstForm from './components/FirstForm'
+import OtherForms from './components/OtherForms'
 import calculateMed from './calculateMed'
-import Progression from './Progression'
-import Intro from './Intro'
+import Progression from './components/Progression'
+import Intro from './components/Intro'
 import './App.css'
 
 function App() {
