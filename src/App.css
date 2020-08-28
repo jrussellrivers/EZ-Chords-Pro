@@ -97,8 +97,10 @@ hr {
 }
 
 .progString {
-    margin: auto;
+    font-size: 30px;
     text-align: center;
+    margin: 10px;
+    vertical-align: middle;
 }
 
 .chordSoundDiv {
@@ -118,9 +120,8 @@ hr {
     text-align: center;
 }
 
-.progString {
-    margin: 10px;
-    vertical-align: middle;
+.progDiv img {
+    height: 20px;
 }
 
 .delayDiv {
