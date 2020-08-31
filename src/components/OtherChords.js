@@ -5,12 +5,10 @@ import Keys from './Keys'
 
 
 const OtherChords = (props) =>{
-    // console.log(props.chord)
     let note = props.chord[0]
     let variation = props.chord[1]
     let newChordList = []
 
-    // console.log(chords[note][variation])
     chords[note][variation].forEach(new_chord =>{
         let shortestRange = 50
         let newElement = 0
@@ -40,7 +38,6 @@ const OtherChords = (props) =>{
     for (let i=0;i<sortedChords.length;i++){
         ranNotes.push(soundValues[sortedChords[i][0]])
     }
-    // console.log(ranNotes)
 
     return(
         <div className='chordDiv'>
