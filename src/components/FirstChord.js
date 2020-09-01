@@ -5,14 +5,12 @@ import Keys from './Keys'
 
 
 const FirstChord = (props) =>{
-    // console.log(props.chord)
     let note = props.chord[0]
     let variation = props.chord[1]
     let newChordList = []
     
     let maxValue = melodyValues[props.startMelody]
 
-    // console.log(chords[note][variation])
     chords[note][variation].forEach(new_chord =>{
         let highest = 0 
 
