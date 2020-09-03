@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { useForm } from "react-hook-form";
-import Chord from './Chord'
-import FirstForm from './FirstForm'
-import OtherForms from './OtherForms'
+import Chord from './components/Chord'
+import FirstForm from './components/FirstForm'
+import OtherForms from './components/OtherForms'
 import calculateMed from './calculateMed'
-import Progression from './Progression'
+import Progression from './components/Progression'
+import Intro from './components/Intro'
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [newChord, addNewChord] = useState([])
   const [startMelody, changeMelody] = useState('')
   const [medValue, changeMed] = useState(0)
+  const [delayNumber, addDelayNumber] = useState(1)
 
   const onSubmit = (data) => {
     const values = Object.values(data)
@@ -31,32 +33,52 @@ function App() {
         index += 2
       }
     }
+    addDelayNumber(1)
     changeMed(calculateMed(firstChord))
     addChords(newChords)
   };
 
-  const increment = () => {
+  const incrementForm = () => {
     addFormNumber(formNumber + 1)
-}
-  const decrement = () => {
+  }
+  const decrementForm = () => {
     if (formNumber > 1){
       addFormNumber(formNumber - 1)
     }
   }
 
+  const incrementDelay = () => {
+    addDelayNumber(delayNumber + 1)
+}
+  const decrementDelay = () => {
+    if (delayNumber > 1){
+      addDelayNumber(delayNumber - 1)
+    }
+  }
+
+  console.log('app')
   return (
     <div className='theApp'>
-      <div>Number of Chords: {formNumber}</div>
-      <button onClick={increment}>Add Chord</button>
-      <button onClick={decrement}>Remove Chord</button>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
-        <OtherForms formNumber={formNumber} register={register}/>
-        <input type="submit" />
-      </form>
-
-      {chordList.length > 0 ? <Progression chordList={chordList}/>  : null}
-      {chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>)}
+      <h1>Welcome to EZ Chords Pro</h1>
+      <div className='topDiv'>
+        <Intro />
+        <div>
+          <div>Number of Chords: {formNumber}</div>
+          <button onClick={incrementForm}>Add Chord</button>
+          <button onClick={decrementForm}>Remove Chord</button>
+          <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FirstForm changeMelody={changeMelody} addNewChord={addNewChord} register={register} newChord={newChord}/>
+              <OtherForms formNumber={formNumber} register={register}/>
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      {chordList.length > 0 ? <Progression chordList={chordList} startMelody={startMelody} medValue={medValue} delayNumber={delayNumber}/>  : null}
+      {chordList.length > 0 ? (delayNumber ===1 ? <div className='delayDiv'><div>Time Between Chords: 1 second</div><button onClick={incrementDelay}>Increase Time</button><button onClick={decrementDelay}>Reduce Time</button></div> : <div className='delayDiv'><div>Time Between Chords: {delayNumber} seconds</div><button onClick={incrementDelay}>Increase Time</button><button onClick={decrementDelay}>Reduce Time</button></div>) : null}
+      {chordList.length > 0 ? chordList.map((chord, idx)=> <Chord key={idx} idx={idx} chord={chord} startMelody={startMelody} medValue={medValue} changeMed={changeMed}/>) : null}
     </div>
   );
 }
