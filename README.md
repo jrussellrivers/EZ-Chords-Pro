@@ -1,4 +1,5 @@
 # EZ Chords Pro
+![rmbanner](https://github.com/jrussellrivers/myportfolio/blob/master/images/portfolio/ezchordspro.png)
 
 ## Overview:
 This app was developed as a tool for aspiring pianists. When someone inputs a chord progression into the form below, a keyboard renders for each chord to show how to play it. The first chord input in the form takes a starting melody note from that chord and then the other chord inversions are calculated to provide you with a solution that minimizes hand movement from one chord to another. I hope this tool can be of use to musicians of all skill levels!
