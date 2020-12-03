@@ -1,68 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EZ Chords Pro
 
-## Available Scripts
+## Overview:
+This app was developed as a tool for aspiring pianists. When someone inputs a chord progression into the form below, a keyboard renders for each chord to show how to play it. The first chord input in the form takes a starting melody note from that chord and then the other chord inversions are calculated to provide you with a solution that minimizes hand movement from one chord to another. I hope this tool can be of use to musicians of all skill levels!
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Directions for use:
+1. Choose the number of chords you want in your progression by pressing the "Add Chord" and "Remove Chord" buttons.
+2. Input the note, variation, and starting melody for the first chord.
+3. Input the notes and variations for the remaining chords.
+4. Press Submit!
+5. The section marked "Chord Progression" lists the entire progression.
+  - Press the play button to hear the entire chord progression.
+  - The time between chords is set to 1 second as default.
+  - To change the amount of time between chords, press the "Increase Time" or "Reduce Time" buttons to increase/decrease the time, respectively.
+6. Each chord in the progression has a keyboard with the proper fingering shown.
+  - The chord name is displayed as well as each note in the order that they are fingered.
+  - Clicking the play button here will play the single chord one time.
+7. To load a new chord progression, simply follow these same steps and press submit. Happy learning!
